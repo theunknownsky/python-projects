@@ -213,7 +213,7 @@ users = {}
 # dummy values: ["Sky"]
 borrowers = []
 # borrowed_books: [[book1, ...], [book3. book1, ...], ...]
-# dummy values: ["C++"]
+# dummy values: [["C++"]]
 borrowed_books = []
 
 library = Library(books, users, borrowers, borrowed_books)
