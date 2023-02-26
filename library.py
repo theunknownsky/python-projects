@@ -1,10 +1,18 @@
 class Library:
-	def __init__(self, books, users, borrowers, borrowed_books):
+	def __init__(self):
 		"""Constructor of the class 'Library'"""
-		self.books = books
-		self.users = users
-		self.borrowers = borrowers
-		self.borrowed_books = borrowed_books
+		# books: {Book Name: (ID, Quantity), ...}
+		# dummy values: {"Python": ("1001", 6), "C++": ("1002", 8), "Carbon": ("1003", 3)}
+		self.books = {}
+		# users: {Username: (ID, Password), ...}
+		# dummy values: {"Vonn": (1, "qwer"), "Sky": (2, "SSS")}
+		self.users = {}
+		# borrowers: [Username, ...]
+		# dummy values: ["Sky", "Vonn"]
+		self.borrowers = []
+		# borrowed_books: [[book1, ...], [book3. book1, ...], ...]
+		# dummy values: [["C++", "Python"], ["Carbon"]]
+		self.borrowed_books = []
 	def print_a_book(book):
 		"""Print a book."""
 		print("Book name: {}\nBook ID: {}\nBook Quantity: {}".format(book.name, book.id, book.quantity))
@@ -172,7 +180,6 @@ class Library:
 				print("{} haven't borrowed anything.".format(username))
 		else:
 			print("There are no borrowers at the moment.")
-
 					
 class Book(Library):
 	def __init__(self, name, id, quantity):
@@ -203,21 +210,7 @@ def choicePrompt():
 		choice = int(input("Enter your choice (from 1 to 9): "))
 	return choice
 
-# books: {Book Name: (ID, Quantity), ...}
-# dummy values: {"Python": ("1001", 6), "C++": ("1002", 8), "Carbon": ("1003", 3)}
-books = {}
-# users: {Username: (ID, Password), ...}
-# dummy values: {"Vonn": (1, "qwer"), "Sky": (2, "SSS")}
-users = {}	
-# borrowers: [Username, ...]
-# dummy values: ["Sky"]
-borrowers = []
-# borrowed_books: [[book1, ...], [book3. book1, ...], ...]
-# dummy values: [["C++"]]
-borrowed_books = []
-
-library = Library(books, users, borrowers, borrowed_books)
-
+library = Library()
 choice = 0
 while (choice != 9):
 	choice = choicePrompt()
